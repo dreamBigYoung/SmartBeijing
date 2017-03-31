@@ -1,0 +1,2 @@
+include ':app', ':library-sliding_menu'
+include ':library_vp_library'
