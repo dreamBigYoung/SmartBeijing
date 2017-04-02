@@ -1,17 +1,16 @@
 package com.example.bigyoung.smartbeijing.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.RecyclerView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.bigyoung.smartbeijing.R;
 import com.example.bigyoung.smartbeijing.adapter.HomeFragmentAdapter;
 import com.example.bigyoung.smartbeijing.base.HomeFragLoadData;
-import com.example.bigyoung.smartbeijing.base.HomeFragmentBase;
 import com.example.bigyoung.smartbeijing.bean.HomeNewsCenter.NewsCenterBean;
 import com.example.bigyoung.smartbeijing.fragment.HomeFragment;
 import com.example.bigyoung.smartbeijing.fragment.NewsCenterFragment;
@@ -54,14 +53,30 @@ public class HomeActivity extends FragmentActivity implements NewsCenterFragment
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         initSlidingMenu();
+        initSlipingRecycleView();
         initVpHome();
         initRaidoGroup();
+    }
+
+    /**
+     * 初始化侧滑菜单
+     */
+    private void initSlipingRecycleView() {
+        RecyclerView rcView=(RecyclerView)slidingMenu.findViewById(R.id.slid_rclist);
+
     }
 
     private void initVpHome() {
         frgList = new ArrayList<Fragment>();
         frgList.add(new HomeFragment());
         NewsCenterFragment newsCenterFragment = new NewsCenterFragment();
+        newsCenterFragment.setOnMenuClickingListener(new NewsCenterFragment.OnMenuClickingListener() {
+            @Override
+            public void clickingMenuButton() {
+                slidingMenu.toggle();
+            }
+        });
+
         newsCenterFragment.setOnOnConnectResposeListener(HomeActivity.this);
         frgList.add(newsCenterFragment);
         frgAdapter = new HomeFragmentAdapter(getSupportFragmentManager(), frgList);
@@ -108,7 +123,7 @@ public class HomeActivity extends FragmentActivity implements NewsCenterFragment
          */
         slidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
         //设置slidingMenu的布局
-        slidingMenu.setMenu(R.layout.slip_menu);
+        slidingMenu.setMenu(R.layout.item_slip_menu);
     }
 
     @Override
@@ -116,4 +131,5 @@ public class HomeActivity extends FragmentActivity implements NewsCenterFragment
         Gson gson = new Gson();
         NewsCenterBean newsCenterBean = gson.fromJson(respose, NewsCenterBean.class);
     }
+
 }

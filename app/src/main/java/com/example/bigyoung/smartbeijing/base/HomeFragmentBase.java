@@ -21,8 +21,6 @@ import butterknife.Unbinder;
  */
 
 public abstract class HomeFragmentBase extends Fragment {
-    @BindView(R.id.ib_menu)
-    ImageButton ibMenu;
     @BindView(R.id.tv_title)
     TextView tvTitle;
     @BindView(R.id.ib_pic_type)
@@ -30,13 +28,32 @@ public abstract class HomeFragmentBase extends Fragment {
     @BindView(R.id.frg_contain)
     FrameLayout frgContain;
     Unbinder unbinder;
+    @BindView(R.id.ib_menu)
+    ImageButton ibMenu;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_base, container, false);
         unbinder = ButterKnife.bind(this, view);
+        initEvent();
         return view;
+    }
+
+    private void initEvent() {
+        ibMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickingMenuButton();
+            }
+        });
+    }
+
+    /**
+     * 处理clickingMenu的点击事件
+     */
+    public void clickingMenuButton() {
+
     }
 
     @Override
