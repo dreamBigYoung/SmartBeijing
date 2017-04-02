@@ -6,7 +6,7 @@ import java.util.List;
  * Created by BigYoung on 2017/3/30.
  */
 public class NewsData {
-    List<NewsDataChild> children;
+    public List<NewsDataChild> children;
     public int id;
     public String title;
     public String url;

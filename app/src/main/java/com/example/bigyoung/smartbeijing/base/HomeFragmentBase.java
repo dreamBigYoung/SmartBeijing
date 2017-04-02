@@ -25,8 +25,8 @@ public abstract class HomeFragmentBase extends Fragment {
     TextView tvTitle;
     @BindView(R.id.ib_pic_type)
     ImageButton ibPicType;
-    @BindView(R.id.frg_contain)
-    FrameLayout frgContain;
+    @BindView(R.id.frame_contain)
+    FrameLayout frame_contain;
     Unbinder unbinder;
     @BindView(R.id.ib_menu)
     ImageButton ibMenu;
@@ -80,15 +80,17 @@ public abstract class HomeFragmentBase extends Fragment {
     }
 
     public void removeContainView(View view) {
-        frgContain.removeView(view);
+        frame_contain.removeView(view);
     }
-
+    public void removerAllView(){
+        frame_contain.removeAllViews();
+    }
     public void addContainView(View view) {
-        frgContain.addView(view);
+        frame_contain.addView(view);
     }
 
     /**
-     * create view for frameLayout frgContain
+     * create view for frameLayout fraContain
      *
      * @return
      */
