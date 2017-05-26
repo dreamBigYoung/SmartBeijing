@@ -7,6 +7,6 @@ package com.example.bigyoung.smartbeijing.utils;
 public class AppConfig {
     public static final String FIRST_OPEN="first_open";//whether first open app
 
-    public static final String HOST="http://49.74.222.225:8080/zhbj";
+    public static final String HOST="http://192.168.14.49:8080/zhbj";
     public static final String NEWS_CENTER_URL=HOST+"/categories.json";
 }

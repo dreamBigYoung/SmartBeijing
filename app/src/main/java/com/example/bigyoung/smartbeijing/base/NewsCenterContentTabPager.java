@@ -145,7 +145,7 @@ public class NewsCenterContentTabPager implements ViewPager.OnPageChangeListener
             //设置背景颜色
             view.setBackgroundResource(R.drawable.point_gray_bg);
             //布局参数
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(5,5);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(10,10);
             //右边距
             params.rightMargin = 10;
             //添加布局

@@ -51,13 +51,6 @@ public class NewsCenterFragment extends HomeFragmentBase implements HomeFragLoad
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        //让新闻中心第一个子tab的轮播图开始切换
-        views.get(preTabPagePosition).startSwitch();
-    }
-
-    @Override
     public View createContent() {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.newscenter_content, (ViewGroup) getView(), false);
         //获得view的引用
@@ -110,7 +103,7 @@ public class NewsCenterFragment extends HomeFragmentBase implements HomeFragLoad
             @Override
             public void onPageSelected(int position) {
                 //当前的开始切换，其他的tab停止切换
-                for (int i = 0; i < views.size(); i++) {
+            /*    for (int i = 0; i < views.size(); i++) {
                     NewsCenterContentTabPager tabPager = views.get(i);
                     if (position == i) {
                         //选中页
@@ -119,6 +112,16 @@ public class NewsCenterFragment extends HomeFragmentBase implements HomeFragLoad
                         //未选中页
                         tabPager.stopSwitch();
                     }
+                }*/
+                //如果pager完成了切换
+                if(preTabPagePosition!=position){
+                    NewsCenterContentTabPager tabPager = views.get(preTabPagePosition);
+                    //移除上一个线程轮播
+                    tabPager.stopSwitch();
+                    //开启新的线程轮播
+                    tabPager = views.get(position);
+                    tabPager.startSwitch();
+                    preTabPagePosition=position;
                 }
             }
 
@@ -127,6 +130,8 @@ public class NewsCenterFragment extends HomeFragmentBase implements HomeFragLoad
 
             }
         });
+        //让新闻中心第一个子tab的轮播图开始切换
+        views.get(preTabPagePosition).startSwitch();
     }
 
     @Override

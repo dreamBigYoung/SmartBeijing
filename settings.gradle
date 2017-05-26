@@ -1,2 +1,2 @@
-include ':app', ':library-sliding_menu'
+include ':app', ':library-sliding_menu', ':mytabpageindictor', ':mydragablegrid', ':diydragablegrid', ':mywebtest', ':360news', ':talentvideoplayer', ':testmultiadapter', 'topnews'
 include ':library_vp_library'

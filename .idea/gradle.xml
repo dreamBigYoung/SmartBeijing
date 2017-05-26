@@ -9,9 +9,17 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/360news" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/diydragablegrid" />
             <option value="$PROJECT_DIR$/library-sliding_menu" />
             <option value="$PROJECT_DIR$/library_vp_library" />
+            <option value="$PROJECT_DIR$/mydragablegrid" />
+            <option value="$PROJECT_DIR$/mytabpageindictor" />
+            <option value="$PROJECT_DIR$/mywebtest" />
+            <option value="$PROJECT_DIR$/talentvideoplayer" />
+            <option value="$PROJECT_DIR$/testmultiadapter" />
+            <option value="$PROJECT_DIR$/topnews" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

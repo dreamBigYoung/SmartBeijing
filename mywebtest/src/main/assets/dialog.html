@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+	function alertDialog()
+	{
+		alert("这是窗口对话框！");
+	}
+	
+	function queren()
+	{
+		var se=confirm("请选择点击一个按钮");
+		if(se==true)
+		{
+			alert("你按下的是确认");
+		}
+		else
+		{
+			alert("你按下的是取消");
+		}
+	}
+	
+	
+	function tishi()
+	{
+		var t=prompt("请输入你的名字","king世界");
+		if(t!=null && t!=""){
+			document.write("精彩的mv就在。。。。");
+		}
+	}
+    
+</script>
+
+</head>
+<body>
+<input type="button" value="alert对话框" onClick="alertDialog()" />
+<input type="button" value="确认对话框" onClick="queren()" />
+<input type="button" value="提示对话框" onClick="tishi()" />
+
+</body>
+</html>
